@@ -1,0 +1,33 @@
+  			JOB PROFILES (FCFS)
+ JOB_ID  PRIORITY   AT	 CPU	IO	CT	TAT	WT
+   1  	   1	    0	  7	 10	30	30	13
+   4  	   4	    6	  8	 1	29	23	14
+   2  	   2	    2	  9	 2	25	23	12
+   3  	   3	    4	  6	 0	14	10	4
+
+Average Waiting Time=10.75
+Average TurnAroundTime=21.50
+
+
+  			JOB PROFILES (np_priority)
+ JOB_ID  PRIORITY   AT	 CPU	IO	CT	TAT	WT
+   1  	   1	    0	  7	 10	22	22	5
+   2  	   2	    2	  9	 2	15	13	2
+   3  	   3	    4	  6	 0	21	17	11
+   4  	   4	    6	  8	 1	31	25	16
+
+Average Waiting Time=8.50
+Average TurnAroundTime=19.25
+
+
+  			JOB PROFILES (Round Robin TimeSlice=2)
+ JOB_ID  PRIORITY   AT	 CPU	IO	CT	TAT	WT
+   1  	   1	    0	  7	 10	18	18	1
+   2  	   2	    2	  9	 2	15	13	2
+   3  	   3	    4	  6	 0	22	18	12
+   4  	   4	    6	  8	 1	31	25	16
+
+Average Waiting Time=7.75
+Average TurnAroundTime=18.50
+
+
