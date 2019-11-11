@@ -1,0 +1,12 @@
+Matrix Taken:
+
+5	0	1	
+0	-2	0	
+1	0	5	
+
+The maximum eigen value is  6.000000
+
+The corresponding eigen vector is
+ 1.000000
+ 0.000017
+ 1.000000

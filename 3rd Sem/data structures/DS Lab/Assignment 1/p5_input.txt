@@ -1,0 +1,17 @@
+RollNo	Names
+1	SiddharthaPal
+2	ShyokMutsuddi
+5	PriyanshuTirkey
+6	AnindyaChakraborty
+7	AvishekGarain
+8	SandipanManjhi
+9	SushantShaw
+10	AdityarRayala
+11	IrinBanerjee
+12	SadrulAlamMulla
+16	AsisPaul
+21	PrasenjitKumarShaw
+23	RudrajitDawn
+40	AbhayAgarwala
+42	AliHussainKhan
+

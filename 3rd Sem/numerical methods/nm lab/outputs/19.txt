@@ -1,0 +1,22 @@
+   NEWTON RAPHSON METHOD
+
+Sl.no.	           r		condition	r_next		error		order of convergence
+1		0.000000	0.000000	-2.500000	2.500000	NA
+
+2		-2.500000	0.835375	-1.567164	0.932836	-0.075878
+
+Function diverges!!
+
+
+   NEWTON RAPHSON METHOD
+
+Sl.no.	           r		condition	r_next		error		order of convergence
+1		2.000000	0.120000	2.100000	0.100000	NA
+
+2		2.100000	0.006094	2.094568	0.005432	2.265048
+
+3		2.094568	0.000019	2.094552	0.000016	2.112012
+
+4		2.094552	0.000000	2.094552	0.000000	1.#INF00
+
+root of the function=2.094552

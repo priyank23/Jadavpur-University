@@ -1,0 +1,10 @@
+5	5.012531	five
+24	5.012532	help
+20	5.012530	omg
+55	10.67	apple
+10	2.32	aroma
+12	12.54	brake
+36	0.78	program
+45	8.9574	hidden
+98	18.583	prosper
+1	0.0	pool

@@ -1,0 +1,10 @@
+     Linear Curve fitting using least square method
+
+Given inputs are:
+ f(2)=8
+ f(4)=14
+ f(6)=20
+ f(8)=26
+
+
+The line is Y=3.000x +2.000 

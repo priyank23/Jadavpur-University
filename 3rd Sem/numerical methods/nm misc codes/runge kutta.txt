@@ -1,0 +1,11 @@
+   Runge kutta method for solving differential equation.
+
+DE: y'=y-x
+
+ The respective values of x and y are
+     x  	     y
+
+  0.050000	2.102500
+  0.100000	2.205000
+  0.150000	2.307500
+  0.200000	2.410000

@@ -1,0 +1,17 @@
+  Finding Eigen value using Jacobi's method
+
+The given matrix is:
+5.000000	
+0.000000	
+1.000000	
+0.000000	
+-2.000000	
+0.000000	
+1.000000	
+0.000000	
+5.000000	
+0.000000
+The eigen values are:
+6.000000
+-2.000000
+4.500000
