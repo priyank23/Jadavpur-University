@@ -1,0 +1,43 @@
+
+;<Program title>
+
+jmp start
+
+;data
+
+
+;code
+start: nop
+lda 201Eh
+lxi h,2500h
+mvi b,02
+l3: mov c,a
+add l
+mov e,a
+mvi d,25h
+mov a,m
+dcr  b
+jz l4
+l1: mov a,m
+stax d
+inx h
+inx d
+dcr c
+jnz l1
+jmp l3
+l4: lda 201Eh
+mov h,d
+mov l,e
+mov c,a
+lda 201Fh
+mov b,a
+ldax d
+sub b
+stax d
+l2: mov a,m
+stax d
+inx h
+inx d
+dcr c
+jnz l2
+hlt
