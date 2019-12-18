@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.5.2, 2019-11-11T22:55:59. -->
+<!-- Written by QtCreator 4.5.2, 2019-11-25T03:26:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -303,8 +303,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">GraphicsSimulator</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/lp2917/Desktop/GraphicsSimulator/GraphicsSimulator.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">GraphicsSimulator2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/lp2917/Documents/JU/5th Sem/Computer Graphics/GraphicsSimulator/GraphicsSimulator.pro</value>
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">GraphicsSimulator.pro</value>
