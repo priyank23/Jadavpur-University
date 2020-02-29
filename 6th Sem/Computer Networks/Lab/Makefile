@@ -1,3 +1,3 @@
 all:
-	javac ass2/server.java -Xlint
-	javac ass2/client.java -Xlint
+	javac ass3/channel.java -Xlint
+	javac ass3/station.java -Xlint
