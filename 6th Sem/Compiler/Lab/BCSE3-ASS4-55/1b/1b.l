@@ -1,0 +1,13 @@
+%{
+#include "y.tab.h"
+%}
+%%
+A   {return A;}
+B   {return B;}
+.   {return yytext[0];}
+\n  {return yytext[0];}
+%%
+int yywrap() {
+    return 1;
+}
+
