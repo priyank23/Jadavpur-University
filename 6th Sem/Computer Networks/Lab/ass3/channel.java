@@ -4,9 +4,13 @@ import java.io.*;
 import java.net.*;
 import java.util.Vector;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import java.text.ParseException;
 
 class ServerSide
 {
+    static long time=0;
+    static long bits=0;
     static int busy=0;
     private Socket socket = null;
     private ServerSocket server = null;
@@ -60,6 +64,8 @@ class ClientHandler extends Thread
     DataOutputStream out;
     Socket s;
     String IP;
+    int K;
+    Random rand;
     
 
     ClientHandler(Socket s, DataInputStream input, DataOutputStream output)
@@ -67,14 +73,33 @@ class ClientHandler extends Thread
         this.s =s;
         in = input;
         out= output;
+        K=8;
+        rand=new Random();
     }
     void sense() throws InterruptedException
     {
         System.out.println(IP+" Sensing Channel...");
         int i=0;
-        while(ServerSide.busy!=0){sleep(100);i++;}
-        System.out.println(IP+" Clear to Send after "+Double.toString(i*0.1)+"s");
+        int rand_int=1;
+        rand_int=rand.nextInt(10);                   // uncomment this line for non-persistent
+        while(ServerSide.busy!=0){sleep((rand_int++)*100);i++;}
+       // System.out.println(IP+" Clear to Send after "+Double.toString(i*rand_int*0.1)+"s");
+    //    ServerSide.busy=1;  //comment this line for p-persistent
+    }       
+    boolean after_sense(double p) throws InterruptedException //p-persistent protocol after sensing the channel free
+    {
+        if(p==0) return true;
+        double R=rand.nextDouble();
+        if(R<=p) return true;
+        sleep(1000);
+        if(ServerSide.busy==1) return false;
         ServerSide.busy=1;
+        return true;
+    }
+    void back_off() throws InterruptedException
+    {
+            int r=rand.nextInt((int)java.lang.Math.pow(2,K)-1);
+            sleep(r*100);
     }
     void clear()
     {
@@ -91,50 +116,55 @@ class ClientHandler extends Thread
                 line = in.readUTF();
                 if (line.equals("close")|| line.equals("DONE")) 
                 {
-                    System.out.println("Client IP:"+IP+": Connection is now terminated");
                     ServerSide.v.remove(IP);
                     ServerSide.clients.remove(this);
-                    s.close();
                     in.close();
                     out.close();
+                    s.close();
+                    System.out.println("Client IP:"+IP+": Connection is now terminated");
+                    if(ServerSide.v.isEmpty()) 
+                    {
+                        double d = (ServerSide.bits*1000)/(1.0*ServerSide.time);
+                        System.out.println("Time Elapsed: "+Long.toString(ServerSide.time)+"Bits transferred: "+Long.toString(ServerSide.bits)+"Throughput of the system:"+Double.toString(d));
+                    }
                     return;
                 }
                 System.out.println("Client IP:"+IP+": "+line);
-                /*
-                if(line.charAt(0)=='/' || line.substring(3,line.length()-3).equals("Received"))
-                {
+                long start=System.nanoTime();
+                boolean ok2=true;
+                while(true){
                     sense();
-                    for(ClientHandler x: ServerSide.clients)
-                    {   
-                        System.out.println("Checking: " + x.IP + " " + IP);
-                        if(!x.IP.equals(IP)){
-                        System.out.println("Sending "+line+" to " +x.IP);
-                        x.out.writeUTF(line);
+                    boolean ok=after_sense(0.8);
+                    if(!ok)
+                    {
+                        K--;
+                        if(K!=0) back_off();
+                        else {ok2=false;K=8;break;}
+                    }
+                    else {K=8;break;}
+                }
+                sleep(1000);
+                
+                // if(!ok2) out.writeUTF("COLLISION");
+                // else
+                {
+                    try
+                    {
+                        for(ClientHandler x: ServerSide.clients)
+                        {   
+                            sleep(100);
+                            if(ServerSide.v.contains(x.IP) && !x.IP.equals(IP) ){
+                            System.out.println("Sending "+line+" to " +x.IP+"\n");
+                            x.out.writeUTF(line);
+                            }
                         }
                     }
-                    clear();
-                    continue;
-                }*/
-
-                sense();
-                sleep(1000);
-                /*  Inducing corruption to the bits
-                Random rand = new Random();
-                int rand_int,rand_int2;
-                rand_int=rand.nextInt(100);
-                rand_int2 = rand.nextInt(8);
-                if(rand_int<40) {
-                    System.out.println("Corrupting...");
-                    line= line.substring(0,rand_int2) + Integer.toString(((line.charAt(rand_int2)-48)^1)) +line.substring(rand_int2+1);
-                }    */
-                for(ClientHandler x: ServerSide.clients)
-                {   
-                    // System.out.println("Checking: " + x.IP + " " + IP);
-                    if(!x.IP.equals(IP) && ServerSide.v.contains(x.IP)){
-                    System.out.println("Sending "+line+" to " +x.IP+"\n");
-                    x.out.writeUTF(line);
-                    }
+                    catch(Exception e)
+                    {}
                 }
+                long elapsedTime = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start);
+                ServerSide.time+=elapsedTime;
+                ServerSide.bits+=line.length();
                 line=" ";
                 clear();
             }

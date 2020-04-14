@@ -72,13 +72,13 @@ class ClientSide
             }
             System.out.println("Sending next frame");
         }
-        String ack="";
+        String ack="000";
         while(!ack.equals(stnID+"Received"+rstnID))
         {
             // sense();
             System.out.println("Sending frame: 010101110");
             out.writeUTF(rstnID+"010101110"+stnID);  // 010101110 denotes the message has ended
-            ack=input2.readUTF();
+            while(!ack.substring(0,3).equals(stnID)) ack=input2.readUTF();
         }
         System.out.println("Message Sent.");
     }
