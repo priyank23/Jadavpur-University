@@ -1,0 +1,11 @@
+Station #0
+00000011
+
+Station #1
+10110110
+
+Station #2
+00001111
+
+Station #3
+00001001

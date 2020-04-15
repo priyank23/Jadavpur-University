@@ -1,165 +1,148 @@
 package ass4;
+import ass1.files;
 //Setting station id as a 3 bit encoded header | Ex- 010 represents station number 2
 import java.io.*;
-import java.net.*;
-import java.util.Vector;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.text.ParseException;
+import java.util.*;
 
-class ServerSide
-{
-    static int bits[],num;
+class Channel {
+    static int data[][],rsid[];
     static int n=0,a=0;
     static WalshCode wCode;
-    private Socket socket = null;
-    private ServerSocket server = null;
-    private DataInputStream in =null;
-    private DataOutputStream out =null;
-    static Vector<String> v = new Vector<String>();
-    static Vector<ClientHandler> clients = new Vector<ClientHandler>();
+    static int sentBit[];
+    static int lastBit[],lastReceived[];
+    static int receivedMessage[][];
     private boolean done[];
+    private Scanner s=null;
 
-    ServerSide(int port) throws IOException
-    {
+    Channel() throws IOException {
         System.out.println("Enter number of stations:");
-        in=new DataInputStream(System.in);
-        n=in.read()-48;
-        System.out.println(n);
-        in.close();
+        s=new Scanner(System.in);
+        n=s.nextInt();
         wCode = new WalshCode(n);
-        bits=new int[n];
         done=new boolean[n];
+        rsid = new int[n];
         for(int i=0;i<n;i++) done[i]=false;
-        clearBits();
-        server = new ServerSocket(port);
-        System.out.println("Server Started!");
-        System.out.println("Waiting for a client ...");
-        for(int i=0;i<n;i++)
-        {
-            socket = server.accept();
-            if(v.contains(socket.getLocalAddress().toString()))
-            {
-                System.out.println("Duplicate IP tried to connect!!");
-                out = new DataOutputStream(socket.getOutputStream());
-                out.writeUTF("Rejected");
-                out.close();
-                i--;
-                socket.close();
+        System.out.println("SSID\tRSID\tChip Set\n------------------------");
+        for(int i=0;i<n;i++) {
+            Random rand=new Random();
+            int r=rand.nextInt(n-1);
+            while(done[r] || r==i) r=(r+1)%n;
+            done[r]=true;
+            rsid[r]=i;
+            System.out.print("#"+Integer.toString(i)+"\t#"+Integer.toString(r)+"\t");
+            for(int j=0;j<n;j++) {
+                System.out.print(wCode.wc[i][j]);
+                System.out.print(" ");
             }
-            else
-            {
-                v.add(socket.getLocalAddress().toString());
-                System.out.println("New Client connected: "+ socket.getLocalAddress());
-                in =new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-                out = new DataOutputStream(socket.getOutputStream());
-                out.writeUTF(Integer.toString(n));
-                String Chip;
-                System.out.print("Chip Set Alloted:\t[");
-                for(int j=0;j<n;j++)
-                {
-                    System.out.print(wCode.wc[i][j]);
-                    System.out.print(" ");
-                    out.write(wCode.wc[i][j]);   
-                }
-                System.out.println("]");
+            System.out.println();
+        }
+        lastBit = new int[n];
+        lastReceived = new int[n];
+        for(int i=0;i<n;i++) {
+            lastBit[i]=-1;
+            lastReceived[i] = 0;
+        }
+        for(int i=0;i<done.length;i++) done[i]=false;
+        station();
+    }
 
+    void station() throws IOException{
+        initialise_data();
+        sentBit = new int[n]; 
+        receivedMessage = new int[n][8];
+        while(!checkDone()) {
+            send();
+            receive();
+        }
+        printSummary();
+    }
+
+    //generating random frame of 8 bits to send for each station
+    void initialise_data() throws IOException { 
+        data = new int[n][8];
+        ass1.files f = new ass1.files();
+        String s = "";
+        for(int i=0;i<n;i++) {
+            s+="Station #"+Integer.toString(i)+"\n";
+            for(int j=0;j<8;j++) {
                 Random rand=new Random();
-                int r=rand.nextInt(n-1);
-                int t=0;
-                while((done[r] || r==i )&& t<n) {r=(r+1)%n;t++;}
-                
-                if(t==n) {done[i]=true;r=i;}
-                System.out.println("Sending to station #"+Integer.toString(r));
-                for(int j=0;j<n;j++)
-                {
-                    System.out.print(wCode.wc[r][j]);
-                    System.out.print(" ");
-                    out.write(wCode.wc[r][j]);
-                }
-                ClientHandler ch = new ClientHandler(socket, in, out,n);
-                clients.add(ch);
-                ch.start();
+                double r = rand.nextDouble();
+                if(r<0.5) data[i][j]=0;
+                else data[i][j]=1;
+                s+=Integer.toString(data[i][j]);
             }
+            if(i < n-1) s+="\n\n";
         }
-        while(!clients.isEmpty());
-    }
-    static void clearBits()
-    {
-        for(int i=0;i<n;i++) bits[i]=0;
-        num=n;
-    }
-}
-class channel
-{
-    public static void main(String args[]) throws IOException
-    {
-        ServerSide server = new ServerSide(5000);
-    }
-}
-//Assuming Transmission time tp=3s max
-class ClientHandler extends Thread
-{
-    DataInputStream in;
-    DataOutputStream out;
-    Socket s;
-    String IP;
-    Random rand;
-    int n;
-    
-
-    ClientHandler(Socket s, DataInputStream input, DataOutputStream output,int n)
-    {
-        this.s =s;
-        in = input;
-        out= output;
-        rand=new Random();
-        this.n=n;
+        f.writeFile("./ass4/Data.txt",s);
     }
 
-    public void run()
-    {
-        IP = s.getLocalAddress().toString();
-        try
-        {
-            for(int i=0;i<8;i++)
-            { 
-                boolean ok=false;
-                for(int j=0;j<n;j++)
-                {
-                    int val=in.read();
-                    if(val==255) val=-1;
-                    System.out.println(val);
-                    ServerSide.bits[j]+=val;
-                    if(val!=0) ok=true; 
-                }
-                if(!ok) i--; 
-                ServerSide.num=ServerSide.num-1;
-                System.out.println(ServerSide.num);
-                if(ServerSide.num==ServerSide.a){
-                    try
-                    {
-                        for(ClientHandler x: ServerSide.clients)
-                        {   
-                            System.out.println("Sending to :" +x.IP);
-                            for(int j=0;j<n;j++) {x.out.write(ServerSide.bits[j]);System.out.print(ServerSide.bits[j]);}
+    //sending data to the channel
+    void send() {
+        clearSentBits();
+        Random rand = new Random();
+        System.out.println("\nSSID#\tBit Sent\tSentData\n--------------------------------");
+        for(int i=0;i<n;i++) {
+            if(lastBit[i]<7) {
+                Double r=rand.nextDouble();
+                if(r>0.25) {
+                    System.out.print("#"+Integer.toString(i)+"\tBit["+Integer.toString(lastBit[i]+1)+"]: "+Integer.toString(data[i][lastBit[i]+1])+"\t");
+                    if(data[i][++lastBit[i]]==0) 
+                        for(int j=0;j<n;j++) {
+                            sentBit[j] += -1*wCode.wc[i][j];
+                            System.out.print(-1*wCode.wc[i][j]);
+                            System.out.print(" ");
                         }
-                    }
-                    catch(Exception e)
-                    {}
-                    ServerSide.clearBits();
+                    else
+                        for(int j=0;j<n;j++) {
+                            sentBit[j] += wCode.wc[i][j];
+                            System.out.print(wCode.wc[i][j]);
+                            System.out.print(" ");
+                        }
+                    System.out.println();
                 }
             }
-            ServerSide.clients.remove(this);
-            ServerSide.a++;
-            in.close();
-            out.close();
-            s.close();
+            if(lastBit[i]==7) done[i]=true;
         }
-        catch(IOException e)
-        {
-            e.printStackTrace();
+        System.out.println();
+    }
+    void receive() {
+        for(int i=0;i<n;i++) {
+            int val=0;
+            if(lastReceived[i]<8){
+                for(int j=0;j<n;j++) {
+                    val += wCode.wc[rsid[i]][j]*sentBit[j];
+                }
+                if(val!=0) {
+                    receivedMessage[i][lastReceived[i]++] = ((val/n)+1)/2;
+                }
+            }
         }
-        catch(InterruptedException e){}
+    }
+
+    void printSummary() {
+        System.out.println("\nData Transfer Summary");
+        System.out.println("-------------------------------\nRSID\tSSID\tData\n-------------------------------");
+        for(int i=0;i<n;i++) {
+            System.out.print("#"+Integer.toString(i)+"\t#"+Integer.toString(rsid[i])+"\t");
+            for(int j=0;j<8;j++) {
+                System.out.print(receivedMessage[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    void clearSentBits() {
+        for(int i=0;i<n;i++) sentBit[i]=0;
+    }
+    boolean checkDone() {
+        for(int i=0;i<done.length;i++) {
+            if(!done[i]) return false;
+        }
+        return true;
+    }
+}
+class channel {
+    public static void main(String args[]) throws IOException {
+        Channel server = new Channel();
     }
 }

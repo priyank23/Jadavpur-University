@@ -33,9 +33,11 @@ class WalshCode
     }
     void print()
     {
-        System.out.println("The Walsh Code"+Integer.toString(num_of_stations)+" being used:");
+        System.out.println("The Walsh Code being used:");
         for(int i=0;i<num_of_stations;i++){
             for(int j=0;j<num_of_stations;j++) System.out.print(wc[i][j]);
-            System.out.println();}
+            System.out.println();
+        }
+        System.out.println();
     }
 }
