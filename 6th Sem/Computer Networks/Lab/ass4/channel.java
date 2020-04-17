@@ -73,7 +73,7 @@ class Channel {
             }
             if(i < n-1) s+="\n\n";
         }
-        f.writeFile("./ass4/Data.txt",s);
+        f.writeFile("./ass4/input.txt",s);
     }
 
     //sending data to the channel
