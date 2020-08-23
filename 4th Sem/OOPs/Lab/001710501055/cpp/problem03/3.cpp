@@ -3,6 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/* Class to store information of each item and related methods */
 class item
 {
     string code,name;
@@ -33,10 +34,11 @@ public:
         quan=qty;
     }
 };
-//
+
+/* Class to store information of the list of items available and necessary methods for the modification of items and its list. Class item can be accessed by this class only. */
 class itemlist
 {
-    item l1[100];
+    item l1[100];   //Upper limit of number of items is 100
     int n_items;
 public:
     itemlist(int n=0)
@@ -47,7 +49,7 @@ public:
 	{
 		n_items=n;
 	}
-    int find_code(string temp)
+    int find_code(string temp)				//method to find the item in the list based on the code
     {
         for(int i=0;i<n_items;i++)
         {
@@ -56,13 +58,14 @@ public:
         }
         return -1;
     }
-    void prepare_list();
-    void update_list();
-    void disp_list();
+    void prepare_list();					//method to create a new item list. Calling this function overwrites the previously stored list
+    void update_list();						//method to update the currently stored list
+    void disp_list();						//method to display the list
     friend class orderline;
 	friend class order;
 };
-//
+
+/* Class to store the information of one item that is ordered */
 class orderline
 {
     string code;
@@ -86,11 +89,12 @@ public:
 		return code;
 	}
 };
-//
+
+/* Class to store the information of the complete order and necessary methods to collect the order and display the bill */
 class order
 {
     int n_items;
-    orderline list[10];
+    orderline list[10];			// An order can have a maximum of 10 items
 public:
     order()
     {
@@ -114,17 +118,22 @@ public:
         }
     }
     void create_bill(itemlist&);
-    void update_list(itemlist&);
+    void update_list(itemlist&);			//update the list after transaction is complete
 };
 
+/* 
+	Class to access the itemlist either as 
+		1. An admin to create, update or view the list
+		2. A User to view the list and order
+*/
 class Sales_interface
 {
-	string pass="1234";
+	string pass="1234";			//password is hardcoded as 1234 for admin. Change here to change the password
 	itemlist list1;
 public:
-	void access_panel();
-	void Admin();
-	void User();
+	void access_panel();		//method to display the main panel
+	void Admin();				//method to display the admin panel
+	void User();				//method to display the user panel
 };
 //class item member function
 void item::get_item()
@@ -370,6 +379,7 @@ void Sales_interface::access_panel()
 		}
 	}
 }
+/* Driver Program */
 int main()
 {
 	Sales_interface s1;
