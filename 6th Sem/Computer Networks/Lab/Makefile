@@ -1,3 +1,7 @@
 all:
-	javac ass4/WalshCode.java
-	javac ass4/channel.java -Xlint
+	javac ass1/files.java
+	javac ass1/error_module.java
+	javac ass1/errorInsertion.java
+	javac ass1/Checker.java
+	javac ass1/sender.java
+	javac ass1/receiver.java

@@ -2,6 +2,7 @@ from crc import CRC
 import sys, socket
 from random import randrange
 import pickle
+from collections import namedtuple
 
 data_pkt = namedtuple('data_pkt', 'seq_num frame')
 ack_pkt = namedtuple('ack_pkt', 'seq_num ack')
@@ -15,9 +16,8 @@ class GoBackNSender():
 
     '''
     def __init__(self, crc=None,
-                host=socket.gethostname(), port=8000
-                window_size=8):
-        self.crc = crc if crc not None else CRC()
+                host=socket.gethostname(), port=8000 ,window_size=8):
+        self.crc = crc if not crc == None else CRC()
         self._init_socket(host, port)
         self.host = host
         self.port = port
@@ -49,7 +49,7 @@ class GoBackNSender():
         c, addr = self.socket.accept()
         for f in frames:
             self._send_one_frame(f, conn=c, corrupt_simulation=corrupt_simulation)
-            while not self._receive_ack(conn=c):
+            while not self._receive_ack_thread(conn=c):
                 self._send_one_frame(f, conn=c)
         c.close()
 
@@ -115,10 +115,12 @@ if __name__ == '__main__':
         port = 8000
 
     print('Simulating StopAndWait Protocol for {}'.format(user))
-    saw = StopAndWait(user=user, port=port)
+
     if user == 'sender':
+        sender = GoBackNSender()
         with open('input.txt') as f:
             text = f.read()
-        saw.send(text)
+        sender.send(text)
     elif user == 'receiver':
-        print(saw.receive())
+        receiver = GoBackNReceiver()
+        print(receiver.receive())

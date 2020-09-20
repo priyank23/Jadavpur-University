@@ -4,8 +4,8 @@ p1
 I00
 sS'window_high'
 p2
-I16
+I9
 sS'window_low'
 p3
-I8
+I1
 s.

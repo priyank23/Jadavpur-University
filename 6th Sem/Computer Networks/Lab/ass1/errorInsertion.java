@@ -33,7 +33,7 @@ class ErrorHandling
                 }
                 break;
         }
-        f.WriteFile("./ass1/intermediate.txt",msg);
+        f.writeFile("./ass1/intermediate.txt",msg);
     }
     public static void main(String[] args) throws IOException
     {

@@ -111,11 +111,11 @@ class ClientSide
         out.writeUTF(rstnID+"Received"+stnID);
         System.out.println("Message Received Successfully.");
         ass1.files f = new ass1.files();
-        f.writeFile("./ass2/received messages/"+rstnID,msg);
+        f.writeFile("./ass3/"+rstnID,msg);
     }
     void sender() throws IOException
     {
-        String frames[] = encode("./ass2/message.txt");
+        String frames[] = encode("./ass3/message.txt");
         saw_send(frames);
     }
     void run() throws IOException
