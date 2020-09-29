@@ -1,3 +1,6 @@
 [submodule "6th Sem/Compiler/SyntaxAnalyser"]
 	path = 6th Sem/Compiler/SyntaxAnalyser
 	url = https://github.com/priyank23/SyntaxAnalyser
+[submodule "5th Sem/System Programming/Lab/8085Simulator"]
+	path = 5th Sem/System Programming/Lab/8085Simulator
+	url = https://github.com/priyank23/8085Simulator
