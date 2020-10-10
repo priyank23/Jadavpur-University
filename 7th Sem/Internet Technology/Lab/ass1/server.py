@@ -5,7 +5,7 @@ import csv
 
 class store:
 
-    def __init__(self, username, password):
+    def __init__(self, username, password=None):
         self.username = username
         self.password = password
         self.pairs = {}
@@ -16,6 +16,8 @@ class store:
             for row in reader:
                 key = row[0]
                 self.pairs[key] = row[1]
+        else:
+            print("New User entered")
         
     def save(self):
         with open('./values/'+self.username+'.csv', 'w') as f:
@@ -40,34 +42,43 @@ class server:
                 print('Connected by', addr)
         
                 user = conn.recv(1024).decode()
-                pswd = conn.recv(1024).decode()
-
-                store = store(user, pswd)
+                conn.sendall("User Received".encode())
+                #pswd = conn.recv(1024).decode()
+                print("Username: %s" % user)
+                st = store(user)
             
                 while True: 
                     req = conn.recv(1024).decode()
+                    print("Request Type: " + req)
+                    conn.sendall("RecReq".encode())
                     if req == 'DONE': 
-                        store.save()
+                        st.save()
                         break
                 
                     key = conn.recv(1024).decode()
-                
-                    if req == 'get':
-                        toReturn = store.pairs.get(key)
+                    conn.sendall("RecKey".encode())
 
-                        if toReturn is not None:
+                    if req == 'get':
+                        print("Key: "+key)
+                        toReturn = st.pairs.get(key)
+                        conn.recv(1024).decode() 
+                        if toReturn is None:
                             conn.sendall("KeyError".encode())
                         else: conn.sendall(toReturn.encode())
-                
+                        
                     elif req == 'put':
                         val = conn.recv(1024).decode()
-
-                        store.pairs[key] = val
+                        st.pairs[key] = val
+                        print("Key: %s, Value: %s" % (key, val))
+                        conn.sendall('OK'.encode())
 
                     else:
                         conn.sendall("ReqError".encode())
+                        st.save()
+                        break
             
                 conn.close()
+                print("connection closed!!")
         except KeyboardInterrupt:
             print("\nClosing the Server")
             self.s.close()
