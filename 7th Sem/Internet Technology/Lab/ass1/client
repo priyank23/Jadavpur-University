@@ -1,13 +1,22 @@
+#!/usr/bin/env python3
+
 import socket
 import sys
 
 class client:
+    # Class to handle the needs of a client
     def __init__(self):
         self.ip = ''
         self.port = -1
         self.s = None
    
     def authenticate(self):
+        """
+            Function for authenticating a user.
+            If a new user enters, a new store is created at the server end
+            If an existing guest user enters, the store of that user is accessed by the server for serving client's reqs
+            If a manager enters, authentication of the manager is checked
+        """
         username = input("Username: ")
         self.s.sendall(username.encode())
         user_stat = self.s.recv(1024).decode()
@@ -28,6 +37,7 @@ class client:
             else: print("You have been demoted to a guest user")
     
     def add_manager(self):
+        # Utility function to add a user as a manager
         authorisation = self.s.recv(1024).decode()
         if authorisation == 'Present': return
         if authorisation == 'Denied':
@@ -42,6 +52,7 @@ class client:
             self.managers_utility()
 
     def managers_utility(self):
+        # Utility function for a manager only
         while True:
             username = input("Enter the name of the user whose information you need: ")
             self.s.sendall(username.encode())
@@ -50,6 +61,7 @@ class client:
             print("User not present!!")
 
     def parse(self):
+        # Main function to get all the requests served by the server
         i = 3
         if sys.argv[i] == 'manager':
             self.s.sendall('manager'.encode())
@@ -93,6 +105,7 @@ class client:
         self.s.close()
 
     def connect(self):
+        # Function for establishing the connection with the manager
         if len(sys.argv) < 3:
             print("Error!!")
             print("Usage: ./client <server_ip> <port> put <key> <value> get <key>")
@@ -107,6 +120,7 @@ class client:
         self.s.connect((self.ip, self.port))
 
 
+# Driver program
 c = client()
 c.connect()
 c.authenticate()

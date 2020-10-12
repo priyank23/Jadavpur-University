@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import socket
 import sys
 import os
@@ -5,7 +7,7 @@ import csv
 import random
 
 class store:
-
+# Class for a key-value store management of a given user    
     def __init__(self, username, password=None):
         self.username = username
         self.password = password
@@ -27,8 +29,9 @@ class store:
 
 
 class server:
-    
+# Class for the main server
     def __init__(self, host='localhost', port = 8000):
+        #initialising the server
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.port = port
@@ -36,7 +39,7 @@ class server:
         self.s.bind((host, port)) 
         self.s.listen(1)
         self.st = None
-
+        print("Server listening at IP: %s , PORT: %d" % (host, port))
         self.mgrs = {}
         if os.path.isfile('manager.csv'):
             reader = csv.reader(open('manager.csv'))
@@ -45,6 +48,7 @@ class server:
                 self.mgrs[mgr] = row[1]
 
     def validate(self, username, conn):
+        # validating whether a given user is a manager or not
         i = 1
         while i <= 3:
             password = conn.recv(1024).decode()
@@ -64,11 +68,13 @@ class server:
             self.managers_utility(conn)
     
     def save_manager_list(self):
+        # A utility function to save manager's list into a file
         with open('manager.csv', 'w') as f:
             for key in self.mgrs.keys():
                 f.write("%s,%s\n"% (key, self.mgrs[key]))
 
     def add_manager(self, user, conn):
+        # A utility function to add a user as a manager into the list
         if user in self.mgrs: 
             conn.sendall('Present'.encode())
             return
@@ -87,6 +93,7 @@ class server:
         self.save_manager_list()
 
     def managers_utility(self, conn):
+        # Utility function for managers only
         while True:
             user = conn.recv(1024).decode()
             if os.path.isfile('./values/'+user+'.csv'):
@@ -97,8 +104,10 @@ class server:
                 conn.sendall('NOK'.encode())
     
     def start(self):
+        # Main function of the server to handle client requests
         try:
             while True:
+                # Accepting a new client
                 conn, addr = self.s.accept()
                 print('\n--------------------------')
                 print('Connected by', addr)
@@ -112,6 +121,7 @@ class server:
                 
                 print("Username: %s" % user)
                 
+                #Determining whether the client is a manager or not
                 ownership = conn.recv(1024).decode()
                 if ownership == 'manager':
                     self.add_manager(user, conn)
@@ -121,7 +131,8 @@ class server:
                 st = self.st
                 self.st = None
                 
-                while True: 
+                while True:
+                    # Responding to client requests
                     req = conn.recv(1024).decode()
                     conn.sendall("RecReq".encode())
                     if req == 'DONE': 
@@ -157,5 +168,6 @@ class server:
             print("\nClosing the Server")
             self.s.close()
 
+# Driver program
 sock = server()
 sock.start()
