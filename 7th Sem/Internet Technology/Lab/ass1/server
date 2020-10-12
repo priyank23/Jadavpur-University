@@ -130,7 +130,7 @@ class server:
                 if self.st is None: self.st = store(user)
                 st = self.st
                 self.st = None
-                
+                print()
                 while True:
                     # Responding to client requests
                     req = conn.recv(1024).decode()
@@ -142,7 +142,7 @@ class server:
                     print("Request Type: "+ req)
                     key = conn.recv(1024).decode()
                     conn.sendall("RecKey".encode())
-
+                    
                     if req == 'get':
                         print("Key: "+key)
                         toReturn = st.pairs.get(key)
