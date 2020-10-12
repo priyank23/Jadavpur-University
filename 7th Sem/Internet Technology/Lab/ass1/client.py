@@ -10,10 +10,54 @@ class client:
     def authenticate(self):
         username = input("Username: ")
         self.s.sendall(username.encode())
-        print(self.s.recv(1024).decode())
+        user_stat = self.s.recv(1024).decode()
+        if user_stat == 'MANAGER':
+            print("You are marked as a manager!!\nEnter correct password else you will be demoted to a guest user!!")
+            i = 1
+            while i<=3:
+                if i>1: print("Error!!\n%d attempts remaining!!" % (3-i+1))
+                password = input("Password: ")
+                self.s.sendall(password.encode())
+                validity = self.s.recv(1024).decode()
+                if validity == 'OK': break
+                i = i + 1
+
+            if i<=3: 
+                print("Welcome Manager!!")
+                self.managers_utility()
+            else: print("You have been demoted to a guest user")
+    
+    def add_manager(self):
+        authorisation = self.s.recv(1024).decode()
+        if authorisation == 'Present': return
+        if authorisation == 'Denied':
+            print('Request for upgradation to manager denied by the server!!')
+        else:
+            password = input("Create password: ")
+            while not input("Confirm password: ") == password:
+                print("Password not matched!! Try again!!")
+            self.s.send(password.encode())
+            print(self.s.recv(1024).decode())
+            print('You are now a manager')
+            self.managers_utility(conn)
+
+    def managers_utility(self):
+        while True:
+            username = input("Enter the name of the user whose information you need: ")
+            self.s.sendall(username.encode())
+            res = self.s.recv(1024).decode()
+            if res == 'OK': return
+            print("User not present!!")
 
     def parse(self):
         i = 3
+        if sys.argv[i] == 'manager':
+            self.s.sendall('manager'.encode())
+            self.add_manager()
+            i = i+1
+        else: 
+            self.s.sendall('guest'.encode())
+            self.s.recv(1024)
         while i<len(sys.argv):
             #print(i)
             if sys.argv[i] == 'get':

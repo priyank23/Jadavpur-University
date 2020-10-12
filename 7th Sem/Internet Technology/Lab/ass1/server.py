@@ -2,6 +2,7 @@ import socket
 import sys
 import os
 import csv
+import random
 
 class store:
 
@@ -34,19 +35,85 @@ class server:
         self.host = host
         self.s.bind((host, port)) 
         self.s.listen(1)
+        self.st = None
 
+        self.mgrs = {}
+        if os.path.isfile('manager.csv'):
+            reader = csv.reader(open('manager.csv'))
+            for row in reader:
+                mgr = row[0]
+                self.mgrs[mgr] = row[1]
+
+    def validate(self, username, conn):
+        i = 1
+        while i <= 3:
+            password = conn.recv(1024).decode()
+            if password == self.mgrs[username]: 
+                conn.sendall("OK".encode())
+                break
+            else: conn.sendall("NOK".encode())
+            i = i+1
+
+        if i == 4: 
+            del self.mgrs[username]
+            print("User demoted from manager to guest!!")
+        else: 
+            print("A manager accessed the connection")
+            self.managers_utility(conn)
+    
+    def add_manager(self, user, conn):
+        if user in self.mgrs: 
+            conn.sendall('Present'.encode())
+            return
+        r = random.random()
+        if r < 0.25:
+            print("Request for upgrade denied!")
+            conn.sendall('Denied'.encode())
+        else:
+            conn.sendall('Granted'.encode())
+            password = conn.recv(1024).decode()
+            conn.sendall('ACK'.encode())
+            self.mgrs[user] = password
+            print("A new manager added")
+            self.managers_utility(conn)
+        
+        with open('manager.csv', 'w') as f:
+            for key in self.mgrs.keys():
+                f.write("%s,%s\n"% (key, self.mgrs[key]))
+
+    def managers_utility(self, conn):
+        while True:
+            user = conn.recv(1024).decode()
+            if os.path.isfile('./values/'+user+'.csv'):
+                self.st = store(user)
+                conn.sendall('OK'.encode())
+                return
+            else:
+                conn.sendall('NOK'.encode())
+    
     def start(self):
         try:
             while True:
                 conn, addr = self.s.accept()
                 print('Connected by', addr)
-        
+                
                 user = conn.recv(1024).decode()
-                conn.sendall("User Received".encode())
-                #pswd = conn.recv(1024).decode()
+                if user in self.mgrs:
+                    conn.sendall("MANAGER".encode())
+                    self.validate(user, conn)
+                else: conn.sendall("GUEST".encode())
+                
                 print("Username: %s" % user)
-                st = store(user)
-            
+                
+                ownership = conn.recv(1024).decode()
+                if ownership == 'manager':
+                    self.add_manager(user, conn)
+                else: conn.send('ACK'.encode())
+                
+                if self.st is None: self.st = store(user)
+                st = self.st
+                self.st = None
+                
                 while True: 
                     req = conn.recv(1024).decode()
                     print("Request Type: " + req)
