@@ -39,7 +39,7 @@ class client:
             self.s.send(password.encode())
             print(self.s.recv(1024).decode())
             print('You are now a manager')
-            self.managers_utility(conn)
+            self.managers_utility()
 
     def managers_utility(self):
         while True:
@@ -71,7 +71,6 @@ class client:
                 print(val)
 
             elif sys.argv[i] == 'put':
-                print("put " + sys.argv[i+1] + " " + sys.argv[i+2])
                 self.s.sendall('put'.encode())
                 self.s.recv(1024).decode()
                 
@@ -81,7 +80,6 @@ class client:
                 self.s.sendall(sys.argv[i+2].encode())
                 res = self.s.recv(1024).decode()
                 if not res == 'OK':
-                    print(res)
                     break
                 i = i+3
 

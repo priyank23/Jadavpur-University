@@ -57,10 +57,17 @@ class server:
         if i == 4: 
             del self.mgrs[username]
             print("User demoted from manager to guest!!")
+            self.save_manager_list()
+
         else: 
             print("A manager accessed the connection")
             self.managers_utility(conn)
     
+    def save_manager_list(self):
+        with open('manager.csv', 'w') as f:
+            for key in self.mgrs.keys():
+                f.write("%s,%s\n"% (key, self.mgrs[key]))
+
     def add_manager(self, user, conn):
         if user in self.mgrs: 
             conn.sendall('Present'.encode())
@@ -77,9 +84,7 @@ class server:
             print("A new manager added")
             self.managers_utility(conn)
         
-        with open('manager.csv', 'w') as f:
-            for key in self.mgrs.keys():
-                f.write("%s,%s\n"% (key, self.mgrs[key]))
+        self.save_manager_list()
 
     def managers_utility(self, conn):
         while True:
@@ -95,7 +100,9 @@ class server:
         try:
             while True:
                 conn, addr = self.s.accept()
+                print('\n--------------------------')
                 print('Connected by', addr)
+                print('--------------------------\n')
                 
                 user = conn.recv(1024).decode()
                 if user in self.mgrs:
@@ -116,12 +123,12 @@ class server:
                 
                 while True: 
                     req = conn.recv(1024).decode()
-                    print("Request Type: " + req)
                     conn.sendall("RecReq".encode())
                     if req == 'DONE': 
                         st.save()
                         break
                 
+                    print("Request Type: "+ req)
                     key = conn.recv(1024).decode()
                     conn.sendall("RecKey".encode())
 
