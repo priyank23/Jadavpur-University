@@ -7,3 +7,6 @@
 [submodule "7th Sem/Internet Technology/Lab/ass2/react-app"]
 	path = 7th Sem/Internet Technology/Lab/ass2/react-app
 	url = https://github.com/priyank23/react-app
+[submodule "7th Sem/Internet Technology/Lab/scamazon"]
+	path = 7th Sem/Internet Technology/Lab/scamazon
+	url = https://github.com/priyank23/scamazon
