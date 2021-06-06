@@ -1,0 +1,115 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/home/lp2917/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml ass2_5.twx ass2_5.ncd -o ass2_5.twr ass2_5.pcf
+
+Design file:              ass2_5.ncd
+Physical constraint file: ass2_5.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+X<0>           |Y<0>           |    7.312|
+X<0>           |Y<1>           |    7.253|
+X<0>           |Y<2>           |    7.192|
+X<0>           |Y<3>           |    6.885|
+X<1>           |Y<0>           |    7.079|
+X<1>           |Y<1>           |    7.020|
+X<1>           |Y<2>           |    6.959|
+X<1>           |Y<3>           |    6.652|
+X<2>           |Y<0>           |    7.241|
+X<2>           |Y<1>           |    7.182|
+X<2>           |Y<2>           |    7.121|
+X<2>           |Y<3>           |    6.814|
+X<3>           |Y<0>           |    6.865|
+X<3>           |Y<1>           |    6.806|
+X<3>           |Y<2>           |    6.745|
+X<3>           |Y<3>           |    6.438|
+X<4>           |Y<0>           |    6.740|
+X<4>           |Y<1>           |    6.456|
+X<4>           |Y<2>           |    6.419|
+X<4>           |Y<3>           |    6.339|
+X<5>           |Y<0>           |    6.608|
+X<5>           |Y<1>           |    6.324|
+X<5>           |Y<2>           |    6.287|
+X<5>           |Y<3>           |    6.207|
+X<6>           |Y<0>           |    6.853|
+X<6>           |Y<1>           |    6.569|
+X<6>           |Y<2>           |    6.532|
+X<6>           |Y<3>           |    6.452|
+X<7>           |Y<0>           |    6.489|
+X<7>           |Y<1>           |    6.541|
+X<7>           |Y<2>           |    6.168|
+X<7>           |Y<3>           |    6.088|
+X<8>           |Y<0>           |    6.824|
+X<8>           |Y<1>           |    6.787|
+X<8>           |Y<2>           |    6.596|
+X<8>           |Y<3>           |    6.289|
+X<9>           |Y<0>           |    6.410|
+X<9>           |Y<1>           |    6.364|
+X<9>           |Y<2>           |    6.173|
+X<9>           |Y<3>           |    5.866|
+X<10>          |Y<0>           |    6.534|
+X<10>          |Y<1>           |    6.481|
+X<10>          |Y<2>           |    6.290|
+X<10>          |Y<3>           |    5.983|
+X<11>          |Y<0>           |    6.619|
+X<11>          |Y<1>           |    6.575|
+X<11>          |Y<2>           |    6.384|
+X<11>          |Y<3>           |    6.077|
+X<12>          |Y<0>           |    6.811|
+X<12>          |Y<1>           |    6.752|
+X<12>          |Y<2>           |    6.788|
+X<12>          |Y<3>           |    6.481|
+X<13>          |Y<0>           |    6.695|
+X<13>          |Y<1>           |    6.636|
+X<13>          |Y<2>           |    6.658|
+X<13>          |Y<3>           |    6.351|
+X<14>          |Y<0>           |    6.834|
+X<14>          |Y<1>           |    6.775|
+X<14>          |Y<2>           |    6.795|
+X<14>          |Y<3>           |    6.488|
+X<15>          |Y<0>           |    7.068|
+X<15>          |Y<1>           |    7.009|
+X<15>          |Y<2>           |    7.041|
+X<15>          |Y<3>           |    6.734|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Jun  4 13:35:38 2021 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 751 MB
+
+
+

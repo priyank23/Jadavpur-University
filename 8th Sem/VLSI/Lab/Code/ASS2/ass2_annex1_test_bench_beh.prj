@@ -1,0 +1,3 @@
+vhdl work "ass2_2ba.vhd"
+vhdl work "ass2_annex1.vhd"
+vhdl work "ass2_annex1_test_bench.vhd"

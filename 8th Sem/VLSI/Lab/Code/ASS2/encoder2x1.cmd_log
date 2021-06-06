@@ -1,0 +1,20 @@
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 encoder2x1.ngc encoder2x1.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o encoder2x1_map.ncd encoder2x1.ngd encoder2x1.pcf 
+par -w -intstyle ise -ol high -mt off encoder2x1_map.ncd encoder2x1.ncd encoder2x1.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml encoder2x1.twx encoder2x1.ncd -o encoder2x1.twr encoder2x1.pcf 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 encoder2x1.ngc encoder2x1.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o encoder2x1_map.ncd encoder2x1.ngd encoder2x1.pcf 
+par -w -intstyle ise -ol high -mt off encoder2x1_map.ncd encoder2x1.ncd encoder2x1.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml encoder2x1.twx encoder2x1.ncd -o encoder2x1.twr encoder2x1.pcf 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/encoder2x1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 encoder2x1.ngc encoder2x1.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o encoder2x1_map.ncd encoder2x1.ngd encoder2x1.pcf 
+par -w -intstyle ise -ol high -mt off encoder2x1_map.ncd encoder2x1.ncd encoder2x1.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml encoder2x1.twx encoder2x1.ncd -o encoder2x1.twr encoder2x1.pcf 

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_annex1.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_annex1.syr" 

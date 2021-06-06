@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="ASS3" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/ass3_3 - Behavioral |home|lp2917|14.7|ISE_DS|ASS3|ass3_3.vhd</ClosedNode>
+         <ClosedNode>/ass3_4 - Behavioral |home|lp2917|14.7|ISE_DS|ASS3|ass3_4.vhd</ClosedNode>
+         <ClosedNode>/ass3_annex1 - Behavioral |home|lp2917|14.7|ISE_DS|ASS3|ass3_annex1.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>ass3_annex2a - Behavioral (/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2a.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000017b000000020000000000000000000000000200000064ffffffff0000008100000003000000020000017b0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>ass3_annex2a - Behavioral (/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2a.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027b000000040101000100000000000000000000000064ffffffff0000008100000000000000040000005100000001000000000000002900000001000000000000008400000001000000000000017d0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ass3_1a.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/ass3_1a_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_1a_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_1ba_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_1ba_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_1bb_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_1bb_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_1bc_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_1bc_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_1bd_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_1bd_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_1a_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_1a_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_1ba_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_1ba_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_1bb_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_1bb_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_1bc_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_1bc_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_1bd_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_1bd_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_2a_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_2a_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_2ba_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_2ba_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_2bb_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_2bb_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_2bc_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_2bc_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_2_2bd_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_2_2bd_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_3 - Behavioral |home|lp2917|14.7|ISE_DS|ASS3|ass3_3.vhd</ClosedNode>
+         <ClosedNode>/ass3_3_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_3_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_4_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_4_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_annex1_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_annex1_test_bench.vhd</ClosedNode>
+         <ClosedNode>/ass3_annex2a_test_bench - behavior |home|lp2917|14.7|ISE_DS|ASS3|ass3_annex2a_test_bench.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>ass3_annex2b_test_bench - behavior (/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2b_test_bench.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >15</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000020a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000020a0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>ass3_annex2b_test_bench - behavior (/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2b_test_bench.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Check Syntax</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Check Syntax</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f2000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <CurrentView>Behavioral Simulation</CurrentView>
+</Project>

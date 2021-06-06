@@ -1,0 +1,29 @@
+Command line:
+   mag_comp_4bit_test_bench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  56663
+
+Tue May 11 00:12:01 2021
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 184.238 Meg
+
+ Total Signals          : 10
+ Total Nets             : 11
+ Total Signal Drivers   : 5
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 2
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 371
+Total Line Count : 11
+
+ Total Simulation Time: 0.97 sec
+
+ Current Memory Usage: 259.74 Meg
+
+Tue May 11 00:12:06 2021
+

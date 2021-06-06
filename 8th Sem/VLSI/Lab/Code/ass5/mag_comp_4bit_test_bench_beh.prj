@@ -1,0 +1,3 @@
+vhdl work "Comparator.vhd"
+vhdl work "mag_comp_4bit.vhd"
+vhdl work "mag_comp_4bit_test_bench.vhd"

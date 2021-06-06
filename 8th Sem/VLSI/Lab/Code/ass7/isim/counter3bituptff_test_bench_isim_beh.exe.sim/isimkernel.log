@@ -1,0 +1,29 @@
+Command line:
+   counter3bituptff_test_bench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  36753
+
+Sun May 23 00:36:29 2021
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 184.242 Meg
+
+ Total Signals          : 24
+ Total Nets             : 11
+ Total Signal Drivers   : 11
+ Total Blocks           : 9
+ Total Primitive Blocks : 4
+ Total Processes        : 7
+ Total Traceable Variables  : 17
+ Total Scalar Nets and Variables : 380
+Total Line Count : 51
+
+ Total Simulation Time: 1.3 sec
+
+ Current Memory Usage: 259.744 Meg
+
+Sun May 23 00:36:55 2021
+

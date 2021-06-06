@@ -1,0 +1,16 @@
+vhdtdtfi -lib work ass2_1b.vhd -prj ASS2 -o ass2_1b.spl -module ass2_1b -template /home/lp2917/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7 ass2_1b.spl /home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.sym 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 ass2_1b.ngc ass2_1b.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o ass2_1b_map.ncd ass2_1b.ngd ass2_1b.pcf 
+par -w -intstyle ise -ol high -mt off ass2_1b_map.ncd ass2_1b.ncd ass2_1b.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ass2_1b.twx ass2_1b.ncd -o ass2_1b.twr ass2_1b.pcf 
+xst -intstyle ise -ifn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.xst" -ofn "/home/lp2917/14.7/ISE_DS/ASS2/ass2_1b.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a100t-csg324-3 ass2_1b.ngc ass2_1b.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o ass2_1b_map.ncd ass2_1b.ngd ass2_1b.pcf 
+par -w -intstyle ise -ol high -mt off ass2_1b_map.ncd ass2_1b.ncd ass2_1b.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ass2_1b.twx ass2_1b.ncd -o ass2_1b.twr ass2_1b.pcf 

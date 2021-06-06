@@ -1,0 +1,2 @@
+vhdl isim_temp "ass3_2_1bd.vhd"
+vhdl isim_temp "ass3_2_1bd_test_bench.vhd"

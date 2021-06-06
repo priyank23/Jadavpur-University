@@ -1,0 +1,29 @@
+Command line:
+   bcd_adder_test_bench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  34033
+
+Sat Jun  5 17:55:39 2021
+
+
+ Elaboration Time: 0.01 sec
+
+ Current Memory Usage: 184.242 Meg
+
+ Total Signals          : 6
+ Total Nets             : 13
+ Total Signal Drivers   : 3
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 2
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 373
+Total Line Count : 9
+
+ Total Simulation Time: 1.8 sec
+
+ Current Memory Usage: 259.744 Meg
+
+Sat Jun  5 18:49:48 2021
+

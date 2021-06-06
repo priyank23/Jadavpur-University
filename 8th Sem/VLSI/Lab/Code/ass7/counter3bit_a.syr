@@ -1,0 +1,402 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: counter3bit_a.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "counter3bit_a.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "counter3bit_a"
+Output Format                      : NGC
+Target Device                      : xc7a100t-3-csg324
+
+---- Source Options
+Top Module Name                    : counter3bit_a
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/lp2917/14.7/ISE_DS/ass7/srff.vhd" into library work
+Parsing entity <srff>.
+Parsing architecture <Behavioral> of entity <srff>.
+Parsing VHDL file "/home/lp2917/14.7/ISE_DS/ass7/counter3bit_a.vhd" into library work
+Parsing entity <counter3bit_a>.
+Parsing architecture <Behavioral> of entity <counter3bit_a>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <counter3bit_a> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <srff> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <counter3bit_a>.
+    Related source file is "/home/lp2917/14.7/ISE_DS/ass7/counter3bit_a.vhd".
+    Summary:
+	no macro.
+Unit <counter3bit_a> synthesized.
+
+Synthesizing Unit <srff>.
+    Related source file is "/home/lp2917/14.7/ISE_DS/ass7/srff.vhd".
+    Found 1-bit register for signal <Z_4_o_clk_DFF_4_q>.
+    Found 1-bit register for signal <s_clk_DFF_5>.
+    Found 1-bit register for signal <s_clk_DFF_7>.
+    Found 1-bit register for signal <s_clk_DFF_8>.
+    Found 1-bit register for signal <Z_4_o_clk_DFF_2_q>.
+    Found 1-bit register for signal <Z_4_o_clk_DFF_3_q>.
+    Found 1-bit register for signal <Z_4_o_clk_DFF_1_q>.
+    Found 1-bit tristate buffer for signal <q> created at line 17
+    Found 1-bit tristate buffer for signal <notq> created at line 17
+    Found 1-bit tristate buffer for signal <q1> created at line 17
+    Found 1-bit tristate buffer for signal <notq1> created at line 17
+    Summary:
+	inferred   7 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+	inferred   4 Tristate(s).
+Unit <srff> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 21
+ 1-bit register                                        : 21
+# Multiplexers                                         : 12
+ 1-bit 2-to-1 multiplexer                              : 12
+# Tristates                                            : 12
+ 1-bit tristate buffer                                 : 12
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <s_clk_DFF_7> in Unit <gen1[0].proc> is equivalent to the following FF/Latch, which will be removed : <s_clk_DFF_8> 
+INFO:Xst:2261 - The FF/Latch <s_clk_DFF_7> in Unit <gen1[1].proc> is equivalent to the following FF/Latch, which will be removed : <s_clk_DFF_8> 
+INFO:Xst:2261 - The FF/Latch <s_clk_DFF_7> in Unit <gen1[2].proc> is equivalent to the following FF/Latch, which will be removed : <s_clk_DFF_8> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+# Multiplexers                                         : 12
+ 1-bit 2-to-1 multiplexer                              : 12
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <s_clk_DFF_7> in Unit <srff> is equivalent to the following FF/Latch, which will be removed : <s_clk_DFF_8> 
+INFO:Xst:2261 - The FF/Latch <notq1> in Unit <srff> is equivalent to the following FF/Latch, which will be removed : <notq> 
+INFO:Xst:2261 - The FF/Latch <q1> in Unit <srff> is equivalent to the following FF/Latch, which will be removed : <q> 
+WARNING:Xst:2042 - Unit counter3bit_a: 6 internal tristates are replaced by logic (pull-up yes): gen1[0].proc/notq1, gen1[0].proc/q1, gen1[1].proc/notq1, gen1[1].proc/q1, gen1[2].proc/notq1, gen1[2].proc/q1.
+
+Optimizing unit <counter3bit_a> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block counter3bit_a, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 12
+ Flip-Flops                                            : 12
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : counter3bit_a.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 15
+#      INV                         : 3
+#      LUT2                        : 1
+#      LUT3                        : 2
+#      LUT4                        : 4
+#      LUT5                        : 3
+#      LUT6                        : 2
+# FlipFlops/Latches                : 12
+#      FDC                         : 3
+#      FDP                         : 9
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 7
+#      IBUF                        : 1
+#      IOBUF                       : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              12  out of  126800     0%  
+ Number of Slice LUTs:                   15  out of  63400     0%  
+    Number used as Logic:                15  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     15
+   Number with an unused Flip Flop:       3  out of     15    20%  
+   Number with an unused LUT:             0  out of     15     0%  
+   Number of fully used LUT-FF pairs:    12  out of     15    80%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                           8
+ Number of bonded IOBs:                   8  out of    210     3%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 12    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 0.855ns (Maximum Frequency: 1169.454MHz)
+   Minimum input arrival time before clock: 0.840ns
+   Maximum output required time after clock: 1.037ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 0.855ns (frequency: 1169.454MHz)
+  Total number of paths / destination ports: 15 / 9
+-------------------------------------------------------------------------
+Delay:               0.855ns (Levels of Logic = 1)
+  Source:            gen1[0].proc/s_clk_DFF_7 (FF)
+  Destination:       gen1[0].proc/notq1 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: gen1[0].proc/s_clk_DFF_7 to gen1[0].proc/notq1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              3   0.361   0.389  gen1[0].proc/s_clk_DFF_7 (gen1[0].proc/s_clk_DFF_7)
+     LUT4:I2->O            1   0.097   0.000  gen1[0].proc/Z_4_o_notq1_MUX_18_o1 (gen1[0].proc/Z_4_o_notq1_MUX_18_o)
+     FDP:D                     0.008          gen1[0].proc/notq1
+    ----------------------------------------
+    Total                      0.855ns (0.466ns logic, 0.389ns route)
+                                       (54.5% logic, 45.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 48 / 24
+-------------------------------------------------------------------------
+Offset:              0.840ns (Levels of Logic = 2)
+  Source:            q<0> (PAD)
+  Destination:       gen1[2].proc/q1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: q<0> to gen1[2].proc/q1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O          12   0.001   0.734  q_0_IOBUF (N4)
+     LUT6:I1->O            1   0.097   0.000  gen1[2].proc/Z_4_o_notq1_MUX_18_o1 (gen1[2].proc/Z_4_o_notq1_MUX_18_o)
+     FDP:D                     0.008          gen1[2].proc/notq1
+    ----------------------------------------
+    Total                      0.840ns (0.106ns logic, 0.734ns route)
+                                       (12.6% logic, 87.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 12 / 6
+-------------------------------------------------------------------------
+Offset:              1.037ns (Levels of Logic = 2)
+  Source:            gen1[2].proc/s_clk_DFF_5 (FF)
+  Destination:       q<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: gen1[2].proc/s_clk_DFF_5 to q<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              1   0.361   0.279  gen1[2].proc/s_clk_DFF_5 (gen1[2].proc/s_clk_DFF_5)
+     INV:I->O              2   0.113   0.283  gen1[2].proc/s_clk_DFF_5_inv1_INV_0 (gen1[2].proc/s_clk_DFF_5_inv)
+     IOBUF:T->IO               0.000          q_2_IOBUF (q<2>)
+    ----------------------------------------
+    Total                      1.037ns (0.474ns logic, 0.563ns route)
+                                       (45.7% logic, 54.3% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    0.855|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 8.16 secs
+ 
+--> 
+
+
+Total memory usage is 494448 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
+

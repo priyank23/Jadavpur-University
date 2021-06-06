@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2b_test_bench_isim_beh.exe" -prj "/home/lp2917/14.7/ISE_DS/ASS3/ass3_annex2b_test_bench_beh.prj" "work.ass3_annex2b_test_bench" 

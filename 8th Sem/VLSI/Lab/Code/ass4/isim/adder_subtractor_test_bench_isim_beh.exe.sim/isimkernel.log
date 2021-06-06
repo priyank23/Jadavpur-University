@@ -1,0 +1,29 @@
+Command line:
+   adder_subtractor_test_bench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  38209
+
+Sat Jun  5 17:53:25 2021
+
+
+ Elaboration Time: 0.01 sec
+
+ Current Memory Usage: 184.25 Meg
+
+ Total Signals          : 8
+ Total Nets             : 14
+ Total Signal Drivers   : 4
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 2
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 374
+Total Line Count : 12
+
+ Total Simulation Time: 1.64 sec
+
+ Current Memory Usage: 259.752 Meg
+
+Sat Jun  5 17:54:32 2021
+

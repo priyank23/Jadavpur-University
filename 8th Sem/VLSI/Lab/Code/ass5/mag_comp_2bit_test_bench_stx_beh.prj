@@ -1,0 +1,4 @@
+vhdl isim_temp "Comparator.vhd"
+vhdl isim_temp "DecimalToBinary.vhd"
+vhdl isim_temp "comparator_2bit.vhd"
+vhdl isim_temp "mag_comp_2bit_test_bench.vhd"

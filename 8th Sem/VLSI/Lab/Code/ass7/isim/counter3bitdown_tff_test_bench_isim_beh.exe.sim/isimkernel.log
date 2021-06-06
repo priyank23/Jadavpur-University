@@ -1,0 +1,29 @@
+Command line:
+   counter3bitdown_tff_test_bench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50351
+
+Sun Jun  6 11:52:33 2021
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 184.242 Meg
+
+ Total Signals          : 9
+ Total Nets             : 11
+ Total Signal Drivers   : 11
+ Total Blocks           : 6
+ Total Primitive Blocks : 4
+ Total Processes        : 7
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 380
+Total Line Count : 51
+
+ Total Simulation Time: 0.81 sec
+
+ Current Memory Usage: 259.744 Meg
+
+Sun Jun  6 12:00:31 2021
+
